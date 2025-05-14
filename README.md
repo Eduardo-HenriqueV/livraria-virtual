@@ -17,5 +17,25 @@ Este é um pequeno projeto de **livraria virtual** feito em **React**. O usuári
 ✅ Salvar no LocalStorage
 ✅ Finalizar compra (limpa o carrinho)
 
+
+🚀 Como usar o aplicativo
+1️⃣ Instale as dependências
+Antes de rodar o projeto, instale os pacotes necessários com:
+npm install
+
+2️⃣ Inicie o servidor local
+Para rodar o projeto no navegador, use:
+npm start
+
+Isso iniciará a aplicação em http://localhost:3000/.
+3️⃣ Explorando os Livros
+- Acesse a página de livros e veja as opções disponíveis.
+- Clique no botão "Adicionar ao Carrinho" para selecionar um livro.
+- No topo, o botão 🛒 Ver Carrinho permite visualizar os itens selecionados.
+
+4️⃣ Finalizar Compra
+- Depois de escolher os livros, vá até a página "Checkout" para concluir a compra.
+- Confirme os itens e finalize sua compra!
+
 👨‍💻 Autor
 Feito por Eduardo Henrique.

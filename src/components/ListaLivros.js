@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { buscarLivros } from "../services/api"; // Importa a função que busca os livros do servidor
-import { useCarrinho } from "../context/CarrinhoContext"; // Importa o contexto do carrinho
+import { buscarLivros } from "../services/api"; // Importa função de busca de livros
+import { useCarrinho } from "../context/CarrinhoContext"; // Contexto do carrinho
 
 /*
   Exibe a lista de livros disponíveis para compra e permite adicionar ao carrinho.
@@ -12,10 +12,10 @@ function ListaLivros() {
     //  Obtém a função para adicionar itens ao carrinho
     const { adicionarAoCarrinho } = useCarrinho();
 
-    /*
-      useEffect para buscar os livros quando o componente for montado.
-      Faz uma requisição assíncrona à API e armazena os livros no estado.
-     */
+    /**
+      useEffect para buscar os livros ao montar o componente.
+      Faz requisição assíncrona à API e armazena os livros no estado.
+  */
     useEffect(() => {
         buscarLivros()
             .then(setLivros)
@@ -23,18 +23,19 @@ function ListaLivros() {
     }, []);
 
     /**
-      Função que adiciona o livro ao carrinho e altera o botão temporariamente.
-    */
+     *  Função para adicionar um livro ao carrinho e alterar temporariamente o botão.
+     */
     const handleAdicionar = (livro) => {
         adicionarAoCarrinho(livro);
 
-        //  Modifica o texto do botão temporariamente para indicar que foi adicionado
+        //  Modifica o botão apenas se existir no DOM
         const botao = document.getElementById(`btn-${livro.id}`);
-        botao.innerHTML = "✅ Adicionado!";
-
-        setTimeout(() => {
-            botao.innerHTML = "➕ Adicionar ao Carrinho";
-        }, 2000);
+        if (botao) {
+            botao.innerHTML = "✅ Adicionado!";
+            setTimeout(() => {
+                botao.innerHTML = "➕ Adicionar ao Carrinho";
+            }, 2000);
+        }
     };
 
     return (
@@ -46,14 +47,9 @@ function ListaLivros() {
                 {livros.map((livro) => (
                     <div key={livro.id} className="col d-flex">
                         <div className="card flex-grow-1 h-100">
-                            {/*  Exibe a imagem do livro */}
-                            <img
-                                src={`/assets/${livro.imagem}`}
-                                className="card-img-top img-fluid"
-                                alt={`Capa do livro ${livro.titulo}`}
-                            />
+                            {/*  Exibe a imagem do livro corretamente */}
+                            <img src={`/assets/${livro.imagem}`} alt={`Capa do livro ${livro.titulo}`} />
                             <div className="card-body d-flex flex-column justify-content-between">
-                                {/*  Informações do livro */}
                                 <h5 className="card-title">{livro.titulo}</h5>
                                 <p className="card-text"><strong>Autor:</strong> {livro.autor}</p>
                                 <p className="card-text"><strong>Gênero:</strong> {livro.genero}</p>
@@ -65,7 +61,7 @@ function ListaLivros() {
                                     className="btn btn-success w-100 mt-auto"
                                     onClick={() => handleAdicionar(livro)}
                                     aria-label={`Adicionar ${livro.titulo} ao carrinho`}>
-                                    ➕ Adicionar ao Carrinho
+                                    Adicionar ao Carrinho
                                 </button>
                             </div>
                         </div>
