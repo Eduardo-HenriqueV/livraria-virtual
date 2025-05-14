@@ -1,0 +1,105 @@
+/*  Estilos Gerais */
+body {
+  font-family: 'Open Sans', serif;
+  background-color: #E6BE8A; /* Define um fundo quente e acolhedor */
+  color: #333333; /* Cor do texto para melhor contraste */
+}
+
+/*  Navbar Responsiva e Acessível */
+.navbar {
+  background-color: #2F4F4F; /* Cor escura para destaque */
+}
+
+/*  Estilos para marca e links da navbar */
+.navbar-brand,
+.nav-link {
+  color: #F5E1C4 !important; /* Cor clara para melhor contraste */
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  transform: translateY(-3px); /* Efeito de animação ao passar o mouse */
+}
+
+/*  Estilos do botão do menu mobile (toggler) */
+.navbar-toggler {
+  border: 2px solid #C4A484 !important; /* Dourado Clássico */
+}
+
+.navbar-toggler:hover {
+  border-color: #800020 !important;
+}
+
+/*  Garantindo acessibilidade ao toggler via teclado */
+.navbar-toggler:focus {
+  border-color: #FFD700 !important;
+  outline: 2px solid #FFD700;
+}
+
+/*  Melhorando estruturação do texto */
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+}
+
+/*  Cards Responsivos  */
+.card {
+  background-color: rgba(128, 0, 32, 0.5); /* Fundo semi-transparente */
+  border-radius: 10px; /* Borda arredondada */
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.4); /* Sombra para efeito 3D */
+  max-width: 100%; /* Adapta os cards a telas menores */
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  padding: 24px;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/*  Efeito hover nos cards */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*  Ajuste para imagens responsivas */
+.img-livro {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/*  Botões Acessíveis */
+.btn-success,
+.btn-primary {
+  background-color: #007bff;
+  font-family: 'Roboto', sans-serif;
+  border-color: #007bf1;
+  color: #000;
+  font-weight: bold;
+}
+
+/*  Efeito hover nos botões */
+.btn-success:hover {
+  background-color: #007bf1;
+  box-shadow: 0px 4px 10px rgba(32, 132, 214, 0.4);
+  transform: translateY(-3px);
+}
+
+/*  Garantindo acessibilidade para botões via teclado */
+.btn-success:focus {
+  outline: 3px solid #FFD700;
+}
+
+/*  Botão Card */
+.btn-card div {
+  background-color: #800020;
+}
+
+.btn-card:hover div {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
